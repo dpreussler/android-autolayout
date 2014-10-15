@@ -1,8 +1,29 @@
 android-autolayout
 ==================
 Write less code!
-Dont inflate views, menus anymore manually!
+Dont inflate views, menus, preferences manually anymore!
 
+
+
+Gradle
+======
+
+```groovy
+compile ('de.jodamob.android:android-autolayout:1.0.1') {
+    // exclude some dependencies because it was build as java not android project
+        exclude group: 'org.robolectric'
+}
+```
+
+or grab from build folder and put in your libs:
+
+```groovy
+compile files('libs/android-autolayout-1.0.1.jar')
+```
+
+
+Usage
+======
 
 Why glue together your Activity and Fragments with the xml file manually?
 Keep the names in sync and it will be done for you.
