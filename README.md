@@ -44,3 +44,7 @@ or with fragment:
 @InjectedLayout(R.id.myLayout)
 public class MyFragment extends AutoLayoutFragment
 ```
+
+
+Licensed under MIT license
+(c) 2014 Danny Preussler
