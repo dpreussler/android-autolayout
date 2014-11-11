@@ -10,8 +10,9 @@ Gradle
 
 ```groovy
 compile ('de.jodamob.android:android-autolayout:1.0.1') {
-    // exclude some dependencies because it was build as java not android project
-        exclude group: 'org.robolectric'
+    // exclude some dependencies
+        exclude group: 'org.robolectric' // because it was build as java not android project
+        exclude group: 'com.crashlytics.android' // because dependency of depenedency, not needed here
 }
 ```
 
