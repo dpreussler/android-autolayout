@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-public class AutoLayoutGridFragment extends GridFragment {
+public class AutoLayoutAbsListViewFragment extends AbsListViewFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

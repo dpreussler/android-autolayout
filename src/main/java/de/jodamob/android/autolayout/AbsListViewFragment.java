@@ -22,15 +22,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
 /**
- * a copy of the android ListFragment to work with GridViews
+ * a copy of the android ListFragment to work with GridViews or etsy's StaggeredGridview,
+ * everything that is a AbListView
  **/
-public class GridFragment extends Fragment {
+public class AbsListViewFragment extends Fragment {
     final private Handler mHandler = new Handler();
 
     final private Runnable mRequestFocus = new Runnable() {
@@ -42,12 +43,12 @@ public class GridFragment extends Fragment {
     final private AdapterView.OnItemClickListener mOnClickListener
             = new AdapterView.OnItemClickListener() {
         public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-            onListItemClick((GridView)parent, v, position, id);
+            onListItemClick((AbsListView)parent, v, position, id);
         }
     };
 
     ListAdapter mAdapter;
-    GridView mList;
+    AbsListView mList;
     View mEmptyView;
     TextView mStandardEmptyView;
     View mProgressContainer;
@@ -55,13 +56,13 @@ public class GridFragment extends Fragment {
     CharSequence mEmptyText;
     boolean mListShown;
 
-    public GridFragment() {
+    public AbsListViewFragment() {
     }
 
     /**
      * Provide default implementation to return a simple list view.  Subclasses
      * can override to replace with their own layout.  If doing so, the
-     * returned view hierarchy <em>must</em> have a GridView whose id
+     * returned view hierarchy <em>must</em> have a ListView whose id
      * is {@link android.R.id#list android.R.id.list} and can optionally
      * have a sibling view id {@link android.R.id#empty android.R.id.empty}
      * that is to be shown when the list is empty.
@@ -104,15 +105,15 @@ public class GridFragment extends Fragment {
     /**
      * This method will be called when an item in the list is selected.
      * Subclasses should override. Subclasses can call
-     * getGridView().getItemAtPosition(position) if they need to access the
+     * getListView().getItemAtPosition(position) if they need to access the
      * data associated with the selected item.
      *
-     * @param l The GridView where the click happened
-     * @param v The view that was clicked within the GridView
+     * @param l The ListView where the click happened
+     * @param v The view that was clicked within the ListView
      * @param position The position of the view in the list
      * @param id The row id of the item that was clicked
      */
-    public void onListItemClick(GridView l, View v, int position, long id) {
+    public void onListItemClick(AbsListView l, View v, int position, long id) {
     }
 
     /**
@@ -161,7 +162,7 @@ public class GridFragment extends Fragment {
     /**
      * Get the activity's list view widget.
      */
-    public GridView getGridView() {
+    public AbsListView getListView() {
         ensureList();
         return mList;
     }
@@ -190,7 +191,7 @@ public class GridFragment extends Fragment {
      *
      * <p>Applications do not normally need to use this themselves.  The default
      * behavior of ListFragment is to start with the list not being shown, only
-     * showing it once an adapter is given with {@link #setListAdapter(ListAdapter)}.
+     * showing it once an adapter is given with {@link #setListAdapter(android.widget.ListAdapter)}.
      * If the list at that point had not been shown, when it does get shown
      * it will be do without the user ever seeing the hidden state.
      *
@@ -256,7 +257,7 @@ public class GridFragment extends Fragment {
     }
 
     /**
-     * Get the ListAdapter associated with this activity's GridView.
+     * Get the ListAdapter associated with this activity's ListView.
      */
     public ListAdapter getListAdapter() {
         return mAdapter;
@@ -270,8 +271,8 @@ public class GridFragment extends Fragment {
         if (root == null) {
             throw new IllegalStateException("Content view not yet created");
         }
-        if (root instanceof GridView) {
-            mList = (GridView)root;
+        if (root instanceof AbsListView) {
+            mList = (AbsListView)root;
         } else {
             mStandardEmptyView = (TextView)root.findViewById(
                     com.android.internal.R.id.internalEmpty);
@@ -282,16 +283,16 @@ public class GridFragment extends Fragment {
             }
             mProgressContainer = root.findViewById(com.android.internal.R.id.progressContainer);
             mListContainer = root.findViewById(com.android.internal.R.id.listContainer);
-            View rawGridView = root.findViewById(android.R.id.list);
-            if (!(rawGridView instanceof GridView)) {
+            View rawListView = root.findViewById(android.R.id.list);
+            if (!(rawListView instanceof AbsListView)) {
                 throw new RuntimeException(
                         "Content has view with id attribute 'android.R.id.list' "
-                                + "that is not a GridView class");
+                                + "that is not a ListView class");
             }
-            mList = (GridView)rawGridView;
+            mList = (AbsListView)rawListView;
             if (mList == null) {
                 throw new RuntimeException(
-                        "Your content must have a GridView whose id attribute is " +
+                        "Your content must have a ListView whose id attribute is " +
                                 "'android.R.id.list'");
             }
             if (mEmptyView != null) {
