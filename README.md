@@ -9,19 +9,8 @@ Gradle
 ======
 
 ```groovy
-compile ('de.jodamob.android:android-autolayout:1.0.1') {
-    // exclude some dependencies
-        exclude group: 'org.robolectric' // because it was build as java not android project
-        exclude group: 'com.crashlytics.android' // because dependency of depenedency, not needed here
-}
+compile 'de.jodamob.android:android-autolayout:1.1'
 ```
-
-or grab from build folder and put in your libs:
-
-```groovy
-compile files('libs/android-autolayout-1.0.1.jar')
-```
-
 
 Usage
 ======
