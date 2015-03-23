@@ -23,16 +23,13 @@ configurations {
 
 repositories {
     mavenCentral()
-	maven {
-        url "http://download.crashlytics.com/maven"
-    }
 }
 
 dependencies {
 	testCompile 'junit:junit:4.11'
 	testCompile 'org.mockito:mockito-all:1.9.5'
     testCompile 'org.robolectric:robolectric:2.2'
-    compile 'de.jodamob.android:jodamoblog:1.0'
+    compile 'de.jodamob.android:jodamoblog:1.2'
     provided 'org.robolectric:android-all:4.4_r1-robolectric-0'
 
 }
