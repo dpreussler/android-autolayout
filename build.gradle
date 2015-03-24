@@ -26,10 +26,11 @@ repositories {
 }
 
 dependencies {
-	testCompile 'junit:junit:4.11'
+    compile 'de.jodamob.android:jodamoblog:1.2'
+    testCompile 'junit:junit:4.11'
 	testCompile 'org.mockito:mockito-all:1.9.5'
     testCompile 'org.robolectric:robolectric:2.2'
-    compile 'de.jodamob.android:jodamoblog:1.2'
+    testCompile 'org.robolectric:android-all:4.4_r1-robolectric-0'
     provided 'org.robolectric:android-all:4.4_r1-robolectric-0'
 
 }
