@@ -9,7 +9,7 @@ Gradle
 ======
 
 ```groovy
-compile 'de.jodamob.android:android-autolayout:1.1'
+compile 'de.jodamob.android:android-autolayout:1.2.2'
 ```
 
 Usage
