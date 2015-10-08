@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/dpreussler/android-autolayout.svg)](https://travis-ci.org/dpreussler/android-autolayout)
+
 android-autolayout
 ==================
 Write less code!
