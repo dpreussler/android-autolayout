@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/dpreussler/android-autolayout.svg)](https://travis-ci.org/dpreussler/android-autolayout)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.jodamob.android/android-autolayout/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.jodamob.android/android-autolayout
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.jodamob.android/android-autolayout/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.jodamob.android/android-autolayout)
 
 android-autolayout
 ==================
