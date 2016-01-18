@@ -43,21 +43,29 @@ public class NameConverter {
         if (aClass.isAnnotationPresent(InjectLayout.class)) {
             return aClass.getAnnotation(InjectLayout.class).value();
         }
+        return convertToResourceLayoutId(activity, activity);
+    }
+
+    public static int convertToResourceLayoutId(Activity activity, Object namedInstance) {
         return DynamicResourceLoader.getStringResourceByName(
                 DynamicResourceLoader.TYPE_LAYOUT,
                    activity.getPackageName(),
                    activity.getResources(),
-                   convertToResourceName(activity));
+                   convertToResourceName(namedInstance));
     }
 
     public static int convertToResourceMenuId(Activity activity) {
+        return convertToResourceMenuId(activity, activity);
+    }
+
+    public static int convertToResourceMenuId(Activity activity, Object nameInstance) {
         return DynamicResourceLoader.getStringResourceByName(
                 DynamicResourceLoader.TYPE_MENU,
                 activity.getPackageName(),
                 activity.getResources(),
-                convertToResourceName(activity));
+                convertToResourceName(nameInstance));
     }
-    
+
     static String[] convertToResourceName(Object object) {
         String pureClassname = getPureClassname(object);
         return asVariants(asLayoutNameCharacters(pureClassname));
